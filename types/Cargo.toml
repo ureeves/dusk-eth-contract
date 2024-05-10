@@ -1,0 +1,9 @@
+[package]
+name = "dusk-eth-contract-types"
+authors.workspace = true
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+bytecheck = { workspace = true }
+rkyv = { workspace = true }
