@@ -8,7 +8,7 @@ version = "0.1.0"
 edition = "2021"
 
 [workspace.dependencies]
-dusk-eth-contract-types = { path = "./types", version = "=0.1.0" }
+deth-contract-types = { path = "./types", version = "=0.1.0" }
 
 # External dependencies
 piecrust-uplink = { version = "0.12.0", features = ["abi", "dlmalloc"] }

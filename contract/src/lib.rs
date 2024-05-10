@@ -5,7 +5,7 @@ extern crate alloc;
 use alloc::collections::BTreeMap;
 use alloc::string::String;
 
-use dusk_eth_contract_types::*;
+use deth_contract_types::*;
 use piecrust_uplink as uplink;
 
 static mut TOKEN: Token = Token {

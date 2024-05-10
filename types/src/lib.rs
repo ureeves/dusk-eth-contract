@@ -32,5 +32,5 @@ pub struct Approve {
 #[archive_attr(derive(CheckBytes))]
 pub struct Allowance {
     pub owner: Address,
-    pub address: Address,
+    pub spender: Address,
 }

@@ -1,5 +1,5 @@
 [package]
-name = "dusk-eth-contract-types"
+name = "deth-contract-types"
 authors.workspace = true
 version.workspace = true
 edition.workspace = true

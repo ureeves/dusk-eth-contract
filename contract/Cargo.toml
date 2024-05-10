@@ -1,7 +1,7 @@
 cargo-features = ["per-package-target"]
 
 [package]
-name = "dusk-eth-contract"
+name = "deth-contract"
 authors.workspace = true
 version.workspace = true
 edition.workspace = true
@@ -10,4 +10,4 @@ forced-target = "wasm32-unknown-unknown"
 
 [dependencies]
 piecrust-uplink = { workspace = true }
-dusk-eth-contract-types = { workspace = true }
+deth-contract-types = { workspace = true }
