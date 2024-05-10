@@ -9,13 +9,15 @@ use deth_contract_types::*;
 use piecrust_uplink as uplink;
 
 static mut TOKEN: Token = Token {
-    _balances: BTreeMap::new(),
-    _approvals: BTreeMap::new(),
+    total_supply: [0, 0],
+    balances: BTreeMap::new(),
+    approvals: BTreeMap::new(),
 };
 
 struct Token {
-    _balances: BTreeMap<Address, Value>,
-    _approvals: BTreeMap<Address, BTreeMap<Address, u64>>,
+    total_supply: Value,
+    balances: BTreeMap<Address, Value>,
+    approvals: BTreeMap<Address, BTreeMap<Address, Value>>,
 }
 
 impl Token {
@@ -31,12 +33,12 @@ impl Token {
         18
     }
 
-    fn supply(&self) -> u64 {
-        todo!()
+    fn supply(&self) -> Value {
+        self.total_supply
     }
 
-    fn balance(&self, _address: Address) -> Value {
-        todo!()
+    fn balance(&self, address: Address) -> Value {
+        self.balances.get(&address).copied().unwrap_or([0, 0])
     }
 
     fn transfer(&mut self, _transfer: Transfer) {
@@ -51,8 +53,11 @@ impl Token {
         todo!()
     }
 
-    fn allowance(&self, _allowance: Allowance) -> Value {
-        todo!()
+    fn allowance(&self, allowance: Allowance) -> Value {
+        match self.approvals.get(&allowance.owner) {
+            None => [0, 0],
+            Some(approvals) => approvals.get(&allowance.spender).copied().unwrap_or([0, 0]),
+        }
     }
 }
 
